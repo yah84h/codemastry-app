@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel-لوحة القيادة</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -23,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <a class="navbar-brand mt-2 mt-lg-0" href="#">
           <img
-            src="/images/logo.png"
+            src="/assets/images/logo.png"
             height="42"
             alt="Code-Mastery Logo"
           />
@@ -94,7 +95,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link align-middle px-0   text-white">
+                      <a href="{{route('sections')}}" class="nav-link align-middle px-0   text-white">
                           <i class="fs-4 bi-bookmarks ms-2"></i> <span class="ms-1 d-none d-sm-inline ">تصنيفات البرامج</span>
                       </a>
                   </li>
@@ -126,7 +127,7 @@
     <div class="row w-100">
        
         <div class="col">
-            <img src="/images/logo.png" width="42px"/>
+            <img src="/assets/images/logo.png" width="42px"/>
             <span class="me-2 text-white">C O D E  &nbsp;&nbsp;  M A S T E R Y</span>
             <p class=" text-white">&copy; 2024 - جميع الحقوق محفوظة</p>
         </div>

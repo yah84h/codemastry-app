@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'image' => [
+            'driver' => 'local',
+            'root' => 'public/assets/uploads/images',
+        ]
+
     ],
 
     /*

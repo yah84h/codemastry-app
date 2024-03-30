@@ -150,7 +150,7 @@
 
                 </div>
                 <div class="col mt-2">
-                    <img src="images/logo.png" width="42px"/>  <span class="me-2 text-white">C O D E  &nbsp;&nbsp;  M A S T E R Y</span>
+                    <img src="/assets/images/logo.png" width="42px"/>  <span class="me-2 text-white">C O D E  &nbsp;&nbsp;  M A S T E R Y</span>
                 </div>
                 <div class="col-lg-4 col-md-12 mt-2">
                     <p class="text-center text-white mt-3">&copy; 2024 - جميع الحقوق محفوظة</p>

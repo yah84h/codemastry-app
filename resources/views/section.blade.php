@@ -27,7 +27,7 @@
                             <a href="" class="btn">
                             <div class="card card-body bg-warning text-center shadow rounded border-0 ">
                                 <div class="card-body py-3">
-                                    <img src="/images/app.svg" class="w-50" alt="">
+                                    <img src="/assets/images/app.svg" class="w-50" alt="">
                                     <h6 class="title fs-1 name fw-bold text-uppercase mt-4 text-white">برمجة صفحات الويب</h6>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                             <a href="/" class="btn">
                             <div class="card text-center shadow rounded border-0 bg-info btn">
                                 <div class="card-body py-3">
-                                    <img src="/images/app.svg" class="w-50" alt="">
+                                    <img src="/assets/images/app.svg" class="w-50" alt="">
                                     <h6 class="title fs-1 name fw-bold text-uppercase mt-4 text-white">برمجة التطبيقات الذكية</h6>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                             <a href="/" class="btn">
                             <div class="card text-center shadow rounded border-0 bg-primary btn">
                                 <div class="card-body py-3">
-                                    <img src="/images/win.svg" class="w-50" alt="">
+                                    <img src="/assets/images/win.svg" class="w-50" alt="">
                                     <h6 class="title fs-1 name fw-bold text-uppercase mt-4 text-white">برمجة أنظمة التشغيل</h6>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mb-5 pt-2">
                     <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
                         <div class="position-relative">
-                            <img src="/images/laravel.jpg" class="card-img-top" alt="...">
+                            <img src="/assets/images/laravel.jpg" class="card-img-top" alt="...">
                             <div class="overlay"></div>    
                         </div>
                         <div class="card-body content">
@@ -100,7 +100,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mb-5 pt-2">
                     <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
                         <div class="position-relative">
-                            <img src="/images/django.jpg" class="card-img-top" alt="...">
+                            <img src="/assets/images/django.jpg" class="card-img-top" alt="...">
                             <div class="overlay"></div>    
                         </div>
                         <div class="card-body content">
@@ -123,7 +123,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mb-5 pt-2">
                     <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
                         <div class="position-relative">
-                            <img src="/images/java.jpg" class="card-img-top" alt="...">
+                            <img src="/assets/images/java.jpg" class="card-img-top" alt="...">
                             <div class="overlay"></div>    
                         </div>
                         <div class="card-body content">
@@ -168,7 +168,7 @@
             <div class="row" id="counter">
                 <div class="col-md-3 col-6 mt-4 pt-2">
                     <div class="counter-box text-center">
-                        <img src="/images/ico1.svg" alt="" width="75">
+                        <img src="/assets/images/ico1.svg" alt="" width="75">
                         <h2 class="mb-0 mt-4"><span class="counter-value" data-target="97">97</span>%</h2>
                         <h6 class="counter-head text-muted">الاعتمادية</h6>
                     </div>
@@ -176,7 +176,7 @@
 
                 <div class="col-md-3 col-6 mt-4 pt-2">
                     <div class="counter-box text-center">
-                        <img src="/images/ico2.svg" width="75" alt="">
+                        <img src="/assets/images/ico2.svg" width="75" alt="">
                         <h2 class="mb-0 mt-4"><span class="counter-value" data-target="15">15</span>+</h2>
                         <h6 class="counter-head text-muted">الجوائز</h6>
                     </div>
@@ -184,7 +184,7 @@
 
                 <div class="col-md-3 col-6 mt-4 pt-2">
                     <div class="counter-box text-center">
-                        <img src="/images/ico3.svg" width="75" alt="">
+                        <img src="/assets/images/ico3.svg" width="75" alt="">
                         <h2 class="mb-0 mt-4"><span class="counter-value" data-target="2">2</span>K</h2>
                         <h6 class="counter-head text-muted">الشهادات</h6>
                     </div>
@@ -192,7 +192,7 @@
 
                 <div class="col-md-3 col-6 mt-4 pt-2">
                     <div class="counter-box text-center">
-                        <img src="/images/ico4.svg" width="75" alt="">
+                        <img src="/assets/images/ico4.svg" width="75" alt="">
                         <h2 class="mb-0 mt-4"><span class="counter-value" data-target="345">345</span></h2>
                         <h6 class="counter-head text-muted">الدروس</h6>
                     </div>
