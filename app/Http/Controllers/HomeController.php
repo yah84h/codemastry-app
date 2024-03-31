@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sections;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,12 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $sections= Sections::all();
+        return view('index',['sections'=>$sections]);
     }
-    public function section()
-    {
-        return view('section');
-    }
+    
 
     
 }

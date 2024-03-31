@@ -53,7 +53,7 @@
                             <a href="" class="btn">
                             <div class="card card-body bg-warning text-center shadow rounded border-0 ">
                                 <div class="card-body py-3">
-                                    <img src="/assets/images/app.svg" class="w-50" alt="">
+                                    <img src="/assets/images/web.svg" class="w-50" alt="">
                                     <h6 class="title fs-1 name fw-bold text-uppercase mt-4 text-white">برمجة صفحات الويب</h6>
                                 </div>
                             </div>

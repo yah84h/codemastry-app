@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Code Mastery</title>
-    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
    
 
     <title>{{ config('app.name', 'CODE-MASTERY') }}</title>
