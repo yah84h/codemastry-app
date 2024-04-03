@@ -18,7 +18,7 @@ class DashboardController extends Controller
     
     public function index(Request $request)
     {
-        $user=$request->User()->name;
+        $user=$request->User()->email;
         return view('dashboard.index');
     }
     

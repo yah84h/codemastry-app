@@ -12,8 +12,7 @@
                             <h1 class="text-primary">أكاديمية CODE MASTERY </h1>
                             <h4 class="mt-3">أفضل موقع عربي لتعلم البرمجة</h4>
                             <p class="fs-5 mt-5">
-                                نسعى لإثراء مكتبة الدروس والمقالات والمشاريع الجديدة
-                                بهدف مواكبة كل ما هو جديد وتزويدكم بكافة الموارد التي تحتاجونها لدراستكم وتأهيلكم لسوق العمل    
+                                نسعى لإثراء مكتبة الدروس والمقالات والمشاريع الجديدة بهدف مواكبة كل ما هو جديد وتزويدكم بكافة الموارد التي تحتاجونها لدراستكم وتأهيلكم لسوق العمل    
                             </p>
                             <div class="mt-4">
                                 <a href="#" class="btn btn-primary mt-2 ">لنبدأ معاً</a>
@@ -50,7 +49,7 @@
                         </div>
                         
                         <div class="col-md-4 col-12 pe-md-0">
-                            <a href="" class="btn">
+                            <a href="{{route('show_programs',['section_id'=>1])}}" class="btn">
                             <div class="card card-body bg-warning text-center shadow rounded border-0 ">
                                 <div class="card-body py-3">
                                     <img src="/assets/images/web.svg" class="w-50" alt="">
@@ -60,7 +59,7 @@
                             </a>
                         </div>
                         <div class="col-md-4 col-12 pt-4ps-md-0 pe-md-0">
-                            <a href="/" class="btn">
+                            <a href="{{route('show_programs',['section_id'=>2])}}" class="btn">
                             <div class="card text-center shadow rounded border-0 bg-info btn">
                                 <div class="card-body py-3">
                                     <img src="/assets/images/app.svg" class="w-50" alt="">
@@ -70,7 +69,7 @@
                             </a>
                         </div>
                         <div class="col-md-4 col-12 pt-4ps-md-0 pe-md-0">
-                            <a href="/" class="btn">
+                            <a href="{{route('show_programs',['section_id'=>3])}}" class="btn">
                             <div class="card text-center shadow rounded border-0 bg-primary btn">
                                 <div class="card-body py-3">
                                     <img src="/assets/images/win.svg" class="w-50" alt="">
@@ -100,77 +99,36 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-12 mb-5 pt-2">
+               
+                    @foreach ($program_details_top as $items)
+                    <div class="col-lg-4 col-md-6 col-12 mb-5 pt-2">
                     <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
-                        <div class="position-relative">
-                            <img src="/assets/images/laravel.jpg" class="card-img-top" alt="...">
-                            <div class="overlay"></div>    
-                        </div>
-                        <div class="card-body content">
-                            <a href="#" class="title link-underline-light text-dark h5 ">Laravel PHP</a>
-                            <p class="text-muted mt-2 text-truncate">
-                                يعد Laravel أحد أكثر أطر PHP استخدامًا في العالم لإنشاء تطبيقات الويب  
-                            </p>
-                            <div class="row">
-                                <div class="col"><a href="#" class="btn btn-primary mt-2 me-2"><i class="uil uil-envelope"></i>انضم للبرنامج</a></div>
-                                <div class="col mt-auto text-start ms-2">السعر: ١٩٩ ريال</li></div>
-                            </div>
-                            <ul class="list-unstyled d-flex justify-content-between border-top mt-3 pt-3 mb-0">
-                                <li class="text-muted small"><i class="uil uil-book-open text-info"></i> 25 درس </li>
-                                <li class="text-muted small ms-3"><i class="uil uil-clock text-warning"></i>المدة:  3h 30m</li>
-                                <li class="text-muted small ms-3"><i class="uil uil-eye text-primary"></i> 3012 متدرب</li>
-                            </ul>
-                        </div>
+                    <div class="position-relative">
+                        <img src="/assets/images/{{$items->url_image}}" class="card-img-top" alt="...">
+                        <div class="overlay"></div>    
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 mb-5 pt-2">
-                    <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
-                        <div class="position-relative">
-                            <img src="/assets/images/django.jpg" class="card-img-top" alt="...">
-                            <div class="overlay"></div>    
+                    <div class="card-body content">
+                        <a href="#" class="title link-underline-light text-dark h3 "> {{$items->program_name}} </a>
+                        <p class="text-muted mt-2 text-truncate">
+                            {{$items->description}}  
+                        </p>
+                        <div class="row">
+                            <div class="col"><a href="#" class="btn btn-primary mt-2 me-2"><i class="uil uil-envelope"></i>انضم للبرنامج</a></div>
+                            <div class="col mt-auto text-start ms-2">السعر: {{$items->price}}  ريال</li></div>
                         </div>
-                        <div class="card-body content">
-                            <a href="#" class="title link-underline-light text-dark h5">Django Python</a>
-                            <p class="text-muted mt-2 text-truncate">
-                                إطار عمل ويب تابع للغة بايثون عالي المستوى ويتيح التطوير السريع لمواقع الويب الآمنة
-                            </p>
-                            <div class="row">
-                                <div class="col"><a href="#" class="btn btn-primary mt-2 me-2"><i class="uil uil-envelope"></i>انضم للبرنامج</a></div>
-                                <div class="col mt-auto text-start ms-2">السعر: ١٩٩ ريال</li></div>
-                            </div>
-                            <ul class="list-unstyled d-flex justify-content-between border-top mt-3 pt-3 mb-0">
-                                <li class="text-muted small"><i class="uil uil-book-open text-info"></i> 35 درس </li>
-                                <li class="text-muted small ms-3"><i class="uil uil-clock text-warning"></i>المدة: 4h 15m</li>
-                                <li class="text-muted small ms-3"><i class="uil uil-eye text-primary"></i> 2435 متدرب</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 mb-5 pt-2">
-                    <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
-                        <div class="position-relative">
-                            <img src="/assets/images/java.jpg" class="card-img-top" alt="...">
-                            <div class="overlay"></div>    
-                        </div>
-                        <div class="card-body content">
-                            <a href="#" class="title link-underline-light text-dark h5">Jave</a>
-                            <p class="text-muted mt-2 text-truncate">
-                                هي لغة برمجة مستخدمة على نطاق واسع في كتابة التعليمات البرمجية لتطبيقات الشبكة
-                                هي لغة برمجة مستخدمة على نطاق واسع في كتابة التعليمات البرمجية لتطبيقات الشبكة
-                            </p>
-                            <div class="row">
-                                <div class="col"><a href="#" class="btn btn-primary mt-2 me-2"><i class="uil uil-envelope"></i>انضم للبرنامج</a></div>
-                                <div class="col mt-auto text-start ms-2">السعر: ١٩٩ ريال</li></div>
-                            </div>
-                            <ul class="list-unstyled d-flex justify-content-between border-top mt-3 pt-3 mb-0">
-                                <li class="text-muted small"><i class="uil uil-book-open text-info"></i> 31 درس </li>
-                                <li class="text-muted small ms-3"><i class="uil uil-clock text-warning"></i>المدة:  2h 45m</li>
-                                <li class="text-muted small ms-3"><i class="uil uil-eye text-primary"></i> 4233 متدرب</li>
-                            </ul>
-                        </div>
+                        <ul class="list-unstyled d-flex justify-content-between border-top mt-3 pt-3 mb-0">
+                            <li class="text-muted small"><i class="uil uil-book-open text-info"></i> {{$items->lesson}}  درس </li>
+                            <li class="text-muted small ms-3"><i class="uil uil-clock text-warning"></i>المدة:  {{$items->duration}} </li>
+                            <li class="text-muted small ms-3"><i class="uil uil-eye text-primary"></i> {{$items->purch}}  متدرب</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+
+            @endforeach
+                </div>
+             
+           
                 
 
        </section>

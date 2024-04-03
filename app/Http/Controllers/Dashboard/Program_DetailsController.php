@@ -44,6 +44,10 @@ class Program_DetailsController extends Controller
     
     public function CreateProgramDetails(Request $request)
     {   
+        $validate=$request->validate([
+            'lesson'=> 'numeric',
+            'price'=> 'numeric',
+        ]);
         $program_details= Program_Details::Create([
             'description'=>$request->description,
             'price'=>$request->price,
@@ -94,24 +98,9 @@ class Program_DetailsController extends Controller
 
     public function EditProgramDetails($id)
     {
-        $program_details=DB::table('program_details')
-        ->join('programs', 'programs.id','=','program_details.program_id')
-        ->join('sections', 'sections.id','=','program_details.section_id')
-        ->select(
-            'program_name',
-            'section_name',
-            'description',
-            'lesson',
-            'duration',
-            'price',
-            'url_image',
-            'program_details.id as program_details_id',
-            'programs.id as program_id',
-            'sections.id as section_id')
-            ->where('program_details.id',$id)
-            ->get();
-            
+        
             $programs= Programs::all();
+            $program_details= Program_Details::all();
             $sections= Sections::all();
            
             

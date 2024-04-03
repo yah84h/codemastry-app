@@ -6,21 +6,23 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Dashboard\SectionsController;
 use App\Http\Controllers\Dashboard\ProgramsController;
 use App\Http\Controllers\Dashboard\Program_DetailsController;
+use App\Http\Controllers\ShoppingController;
 
 Auth::routes();
 
-//======================================== Website Pages =============================================
+//======================================== Website Pages ===============================================
 //Main Pages
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/getbitcoinprice', [App\Http\Controllers\HomeController::class, 'GetBitcoinPrice'])->name('getbitcoinprice');
-//Sections Pages
-Route::get('/sections', [App\Http\Controllers\HomeController::class, 'section'])->name('section');
+
+//Show Programs Page
+Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
+
 
 
 //======================================== Dashboard Pages =============================================
 //Index Dashboard Page
 Route::get('/dashboard',[DashboardController::class,'index'])->name('index');
-Route::get('/logout',[DashboardController::class,'logout'])->name('logout');
+//Route::get('/logout',[DashboardController::class,'logout'])->name('logout');
 
 //Programs Page
 Route::get('/dashboard/programs',[ProgramsController::class,'GetPrograms'])->name('programs');
