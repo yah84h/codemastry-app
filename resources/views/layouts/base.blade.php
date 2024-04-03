@@ -8,7 +8,9 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ asset('/js/input_image.js') }}" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
     <style>
         body{
             font-family: cairo
@@ -74,7 +76,7 @@
     <div class="row ">
       <div class="col-2 px-0 bg-dark">
           <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-              <a href="/" class="text-center w-100 text-white text-decoration-none ">
+              <a href="/dashboard" class="text-center w-100 text-white text-decoration-none ">
                   <span class="fs-4 d-none d-sm-inline text-center text-warning">لوحة التحكم</span>
               </a>
               <hr/>
@@ -90,7 +92,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link align-middle px-0   text-white">
+                    <a href="{{route('program_details')}}" class="nav-link align-middle px-0   text-white">
                       <i class="fs-4 bi-pencil-square ms-2"></i> <span class="ms-1 d-none d-sm-inline ">خيارات البرنامج</span>
                     </a>
                   </li>

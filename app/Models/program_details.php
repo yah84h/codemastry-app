@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class program_details extends Model
+class Program_Details extends Model
 {
     use HasFactory;
+    protected $table= 'program_details';
     protected $fillable = [
         'description',
         'price',
@@ -15,5 +16,7 @@ class program_details extends Model
         'lesson',
         'duration',
         'program_id',
+        'section_id',
+        'url_image'
     ];
 }

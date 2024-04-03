@@ -41,7 +41,7 @@
         <div class="col">
             <form action="{{route('programs')}}" method="GET">
                 @csrf
-                <button name="programe" type="submit" class=" form-control btn btn-primary w-auto mt-5">عرض الكل</button>
+                <button name="program" type="submit" class=" form-control btn btn-primary w-auto mt-5">عرض الكل</button>
             </form>
         </div>
     </div>
@@ -66,8 +66,8 @@
                             <tr>
                               <th>{{$items->id}}</th>
                               <td>{{$items->program_name}}</td>
-                              <td><a href="{{route('edit_programs',['id'=>$items['id']])}}"><i class="fa fa-edit text-success" aria-hidden="true"></i></a></td>
-                              <td><a href="{{route('del_programs',['id'=>$items['id']])}}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
+                              <td><a href="{{route('edit_programs',['id'=>$items['id']])}}"><i class="fa fa-edit text-success" aria-hidden="true"> تحرير</i></a></td>
+                              <td><a href="{{route('del_programs',['id'=>$items['id']])}}"><i class="fa fa-trash text-danger" aria-hidden="true"> حذف</i></a></td>
                             </tr>
                             @endforeach
                           <tr>

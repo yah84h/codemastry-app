@@ -56,9 +56,11 @@ return [
             'throw' => false,
         ],
 
-        'image' => [
+        'images' => [
             'driver' => 'local',
-            'root' => 'public/assets/uploads/images',
+            'root' => 'app/public/assets/uploads/images',
+            'visibility' => 'public',
+            'throw' => false,
         ]
 
     ],

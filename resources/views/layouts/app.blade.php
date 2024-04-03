@@ -33,7 +33,7 @@
         <nav class="navbar bg-dark navbar-expand-md navbar-light shadow-sm p-4" data-bs-theme="dark">
             <div class=" container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="images/logo.png" width="32px"/>
+                    <img src="/assets/images/logo.png" width="32px"/>
                     <!--{{ config('app.name', 'CODE-MASTERY') }}-->
                     <span class="me-2">C O D E  &nbsp;&nbsp;  M A S T E R Y</span>
                 </a>
@@ -49,7 +49,7 @@
   
                     <ul class="navbar-nav  my-lg-0 navbar-nav-scroll w-100" style="--bs-scroll-height: 100px;">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">الرئيسية</a>
+                            <a class="nav-link active" aria-current="page" href="{{ url('/') }}">الرئيسية</a>
                           </li>
                           <li class="nav-item dropdown">
                               <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
