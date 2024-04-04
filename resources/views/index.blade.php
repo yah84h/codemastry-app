@@ -15,8 +15,8 @@
                                 نسعى لإثراء مكتبة الدروس والمقالات والمشاريع الجديدة بهدف مواكبة كل ما هو جديد وتزويدكم بكافة الموارد التي تحتاجونها لدراستكم وتأهيلكم لسوق العمل    
                             </p>
                             <div class="mt-4">
-                                <a href="#" class="btn btn-primary mt-2 ">لنبدأ معاً</a>
-                                <a href="#" class="btn btn-outline-primary mt-2 me-2">عن الأكاديمية</a>
+                                <a href="#start" class="btn btn-primary mt-2 ">لنبدأ معاً</a>
+                                <a href="{{ route('aboutus') }}" class="btn btn-outline-primary mt-2 me-2">عن الأكاديمية</a>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                     <div class="row align-items-center">
                         
                         <div class="row justify-content-center">
-                            <div class="col-12">
+                            <div class="col-12" id="start">
                                 <div class="section-title text-center mt-4 pb-2">
                                     <h1 class="title mb-4">ماذا تريد أن تتعلم ؟</h1>
                                     <p class="text-muted para-desc mb-4 mx-auto fs-5">
@@ -133,9 +133,7 @@
 
        </section>
 
-      
-       
-      
+
             <section class="section">
         <div class="container mt-4 mb-4">
             <div class="row justify-content-center">
@@ -183,7 +181,6 @@
                 </div>
             </div>
         </div>
-    
 
        </section>
 

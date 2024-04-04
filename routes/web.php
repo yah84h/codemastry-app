@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Dashboard\MessageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Dashboard\SectionsController;
 use App\Http\Controllers\Dashboard\ProgramsController;
 use App\Http\Controllers\Dashboard\Program_DetailsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShoppingController;
 
 Auth::routes();
@@ -17,7 +19,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 //Show Programs Page
 Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
 
-
+//AdboutUs Page
+Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'AboutUs'])->name('aboutus');
+Route::post('/aboutus/messages', [App\Http\Controllers\HomeController::class, 'CreateMessages'])->name('create-messages');
 
 //======================================== Dashboard Pages =============================================
 //Index Dashboard Page
@@ -50,5 +54,8 @@ Route::get('/edit_section/{id}',[SectionsController::class,'EditSections'])->nam
 Route::post('/dashboard/update_section',[SectionsController::class,'UpdateSection'])->name('update-sections');
 Route::post('/dashboard/search_section',[SectionsController::class,'SearchSection'])->name('search-sections');
 
-
+//Messages Page
+Route::get('/dashboard/messages',[MessageController::class,'GetMessages'])->name('messages');
+Route::get('/del_messages/{id}',[MessageController::class,'DelMessages'])->name('del_messages');
+Route::post('/dashboard/search_messages',[MessageController::class,'SearchMessages'])->name('search-messages');
 

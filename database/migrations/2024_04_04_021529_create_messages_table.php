@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('phone')->unique();
+        Schema::create('messages', function (Blueprint $table) {
+            $table->id();
+            $table->string('sender_name');
+            $table->string('sender_email');
+            $table->string('msg_title');
+            $table->string('msg_content');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('messages');
     }
 };

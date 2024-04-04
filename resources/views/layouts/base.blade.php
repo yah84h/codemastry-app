@@ -76,11 +76,11 @@
     <div class="row ">
       <div class="col-2 px-0 bg-dark">
           <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-              <a href="/dashboard" class="text-center w-100 text-white text-decoration-none ">
-                  <span class="fs-4 d-none d-sm-inline text-center text-warning">لوحة التحكم</span>
+              <a href="/dashboard" class=" mx-auto  text-decoration-none mt-3 fs-4 text-warning">
+             لوحة التحكم
               </a>
               <hr/>
-              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start fs-5" id="menu">
                   <li class="nav-item">
                       <a href="{{route('index')}}" class="nav-link align-middle px-0   text-white">
                           <i class="fs-4 bi-house ms-2"></i> <span class="ms-1 d-none d-sm-inline ">الرئيسية</span>
@@ -114,6 +114,11 @@
                   <li class="nav-item">
                       <a href="#" class="nav-link align-middle px-0   text-white">
                           <i class="fs-4 bi-people-fill ms-2"></i> <span class="ms-1 d-none d-sm-inline ">العملاء</span>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{route('messages')}}" class="nav-link align-middle px-0   text-white">
+                          <i class="fs-4 bi-envelope-fill ms-2"></i> <span class="ms-1 d-none d-sm-inline ">الرسائل</span>
                       </a>
                   </li>
               </ul>  

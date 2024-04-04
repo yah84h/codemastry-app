@@ -63,7 +63,7 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">عن الأكاديمية</a>
+                                <a class="nav-link active" aria-current="page" href="{{ route('aboutus') }}">عن الأكاديمية</a>
                               </li>
                            
 
@@ -142,9 +142,9 @@
             <div class="row w-100">
                 <div class="col-lg-4 col-md-12 mt-2">
                     <ul class="nav justify-content-center pb-3">
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">الرئيسية</a></li>
+                        <li class="nav-item"><a href="{{ url('/') }}" class="nav-link px-2 text-white">الرئيسية</a></li>
                      
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">عن الأكاديمية</a></li>
+                        <li class="nav-item"><a href="{{ url('/aboutus') }}" class="nav-link px-2 text-white">عن الأكاديمية</a></li>
                         
                     </ul>
 
