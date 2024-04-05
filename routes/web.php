@@ -13,17 +13,25 @@ use App\Http\Controllers\ShoppingController;
 Auth::routes();
 
 //======================================== Website Pages ===============================================
+
 //Main Pages
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 //Show Programs Page
 Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
+Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
+Route::get('/showprograms/addtocart/{id}',[ShoppingController::class,'AddToCart'])->name('add-to-cart');
 
 //AdboutUs Page
 Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'AboutUs'])->name('aboutus');
 Route::post('/aboutus/messages', [App\Http\Controllers\HomeController::class, 'CreateMessages'])->name('create-messages');
 
+//Thanks Page
+Route::get('/thanks',[App\Http\Controllers\HomeController::class,'Thanks'])->name('thanks');
+
+
 //======================================== Dashboard Pages =============================================
+
 //Index Dashboard Page
 Route::get('/dashboard',[DashboardController::class,'index'])->name('index');
 //Route::get('/logout',[DashboardController::class,'logout'])->name('logout');
@@ -37,13 +45,13 @@ Route::post('/dashboard/update',[ProgramsController::class,'UpdateProgram'])->na
 Route::post('/dashboard/search',[ProgramsController::class,'SearchProgram'])->name('search-programs');
 
 //Program_Details Page
-Route::get('/dashboard/program_details',[Program_DetailsController::class,'GetProgramDetails'])->name('program_details');
+Route::get('/dashboard/program-details', [Program_DetailsController::class, 'GetProgramDetails'])->name('program_details');
 Route::post('/dashboard/create_program_details',[Program_DetailsController::class,'CreateProgramDetails'])->name('create_program_details');
 Route::get('/del_program_details/{id}',[Program_DetailsController::class,'DelProgramDetails'])->name('del_program_details');
+Route::post('/dashboard/search_program_details',[Program_DetailsController::class,'SearchProgramDetails'])->name('search_program_details');
 
 Route::get('/editprogramdetails/{id}',[Program_DetailsController::class,'EditProgramDetails'])->name('editprogramsdetails');
 Route::post('/dashboard/update_program_details',[Program_DetailsController::class,'UpdateProgramDetails'])->name('update_program_details');
-Route::post('/dashboard/search_program_details',[Program_DetailsController::class,'SearchProgramDetails'])->name('search_program_details');
 
 
 //Sections Page
@@ -58,4 +66,6 @@ Route::post('/dashboard/search_section',[SectionsController::class,'SearchSectio
 Route::get('/dashboard/messages',[MessageController::class,'GetMessages'])->name('messages');
 Route::get('/del_messages/{id}',[MessageController::class,'DelMessages'])->name('del_messages');
 Route::post('/dashboard/search_messages',[MessageController::class,'SearchMessages'])->name('search-messages');
+
+
 

@@ -16,7 +16,7 @@ class Program_DetailsController extends Controller
         $this->middleware('auth');
     }
 
-    public function GetProgramDetails()
+    public function GetProgramDetails(Request $request)
     {
         $program_details=DB::table('program_details')
         ->join('programs', 'programs.id','=','program_details.program_id')
@@ -34,6 +34,7 @@ class Program_DetailsController extends Controller
             'sections.id as section_id'
         )
         ->get();
+
 
         $programs= Programs::all();
         $sections= Sections::all();
@@ -91,29 +92,69 @@ class Program_DetailsController extends Controller
     
     public function SearchProgramDetails(Request $request)
     {
-        $programs= Programs::where('program_name','like','%'.$request->name.'%')->get();
+        $program_details=DB::table('program_details')
+        ->join('programs', 'programs.id','=','program_details.program_id')
+        ->join('sections', 'sections.id','=','program_details.section_id')
+        ->select(
+            'program_name',
+            'section_name',
+            'description',
+            'lesson',
+            'duration',
+            'price',
+            'url_image',
+            'program_details.id as program_details_id',
+            'programs.id as program_id',
+            'sections.id as section_id'
+        )
+        ->where('program_name','like','%'.$request->name.'%')
+        ->get();
 
-        return view('dashboard.program_details');
+        $programs= Programs::all();
+        $sections= Sections::all();
+        
+        return view('dashboard.program_details',['program_details'=>$program_details, 'programs'=>$programs, 'sections'=>$sections]);
     }
 
     public function EditProgramDetails($id)
     {
+        $program_details=DB::table('program_details')
+        ->join('programs', 'programs.id','=','program_details.program_id')
+        ->join('sections', 'sections.id','=','program_details.section_id')
+        ->select(
+            'program_name',
+            'section_name',
+            'description',
+            'lesson',
+            'duration',
+            'price',
+            'url_image',
+            'program_details.id as program_details_id',
+            'programs.id as program_id',
+            'sections.id as section_id'
+        )
+        ->where('program_details.id','=',$id)
+        ->get();
+
+
+        $programs= Programs::all();
+        $sections= Sections::all();
         
-            $programs= Programs::all();
-            $program_details= Program_Details::all();
-            $sections= Sections::all();
-           
-            
         return view('dashboard.editprogramdetails',['program_details'=>$program_details, 'programs'=>$programs, 'sections'=>$sections]);
     }
 
     public function UpdateProgramDetails(Request $request)
     {
-        // $programs= Programs::Where('id',$request->id)->update(
-        //     ['program_name'=>$request->program_name],
-        // );
+        $program_details= Program_Details::Where('id',$request->id)->update([
+            'description'=>$request->description,
+            'price'=>$request->price,
+            'lesson'=>$request->lesson,
+            'duration'=>$request->duration,
+            'url_image'=>$request->url_image,
+            'section_id'=>$request->section_id,
+        ]);
         
-        // return redirect('/dashboard/programs');
+        return redirect('/dashboard/program_details');
     }
 
 

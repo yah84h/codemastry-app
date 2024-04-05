@@ -42,6 +42,11 @@ class HomeController extends Controller
     {
         return view('/about_us');
     }
+    
+    public function Thanks()
+    {
+        return view('/thanks');
+    }
 
     public function CreateMessages(Request $request)
     {   

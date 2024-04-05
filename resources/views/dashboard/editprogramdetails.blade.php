@@ -5,16 +5,19 @@
     <h1 class="mt-5 text-center">تعديل بيانات برنامج </h1>
     <div class="card mt-3">
         <div class="card-body">
-            <form action="" method="POST">
+            <form action="{{route('update_program_details')}}" method="POST">
                 @csrf
                 <div class="mb-3">
+                    <input type="hidden" name="id" value="{{$program_details['program_details.id']}}">
                     <label class="form-label">اسم البرنامج</label>
-                    <input class="form-control" type="text" name="program_name" placeholder="اسم البرنامج" disabled>
+                    <input class="form-control" type="text" name="program_name" placeholder="اسم البرنامج" value="" disabled>
                     <label class="form-label mt-3">اسم القسم</label>
                     <select class="form-select" name="section_id">
-                        <option selected disabled>اختر</option>
-                      
-                        <option value=""></option>
+                    @foreach ($program_details as $items)
+                    <option selected disabled>اختر</option>
+                        {{$items->section_name}}
+                    <option value=""></option>
+                    @endforeach
                         
                     </select>
                     <label class="form-label mt-3">وصف البرنامج</label>

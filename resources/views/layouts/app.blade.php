@@ -14,9 +14,9 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <link rel="stylesheet" href="resources/css/app.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -26,6 +26,9 @@
     body{
         font-family: cairo
     }
+    .dropdown-menu-custom {
+  min-width:500%;
+}
    </style>
 </head>
 <body>
@@ -64,10 +67,14 @@
                             
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ route('aboutus') }}">عن الأكاديمية</a>
-                              </li>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active text-warning" aria-current="page" href="{{ route('thanks') }}">شكر وتقدير</a>
+                            </li>
                            
 
-                            <li class="col-sm-1 col-md-3 col-lg-4 col-xl-7">----</li>
+                            <li class="col-xl-5 col-lg-3">----</li>
                             @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -108,29 +115,54 @@
                             </li>
                             
                         @endguest
+                        
                         <li class="nav-item me-4">
-                            <a href="" aria-label="0 items in cart" class="text-decoration-none">
+                        <div class="dropdown">
+
+                            <a href="" class="text-decoration-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div id="nav-cart-count-container">
                                     <span class=" bi bi-cart fs-2 text-white"></span>
                                     <span class="text-white">
-                                      ( 0 )
+                                      (&nbsp;{{Session::get('count')}}&nbsp;)
                                     </span>
                                 </div>
-                                <div id="nav-cart-text-container" class=" nav-progressive-attribute">
-                                  <span aria-hidden="true" class="nav-line-1">
-                                    
-                                  </span>
-                                 
-                                  </span>
-                                </div>
-                              </a>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-custom text-end px-4 py-3" aria-labelledby="dropdownMenuButton1" style="max-width: 100%;">
+                                @foreach ($cart_item as $items)           
+                                <li>
+                                    <div class="row">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-3"><img src="/assets/images/{{$items->url_image}}" class="img-fluid  rounded-2"/ width="40"></td>
+                                                    <td class="col-6">{{$items->program_name}}</td>
+                                                    <td class="col-3">{{number_format($items->net, 2)}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                        
+                                    </div>
+                                </li>
+                                @endforeach
+                                        <hr class="text-white">
+                                        <table class=" m-auto col-12 ">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-7 text-end" colspan="2">مجموع السلة: </td>
+                                                    <td class="col-5 text-start">{{number_format($cart_sum, 2)}} ريال</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="d-grid gap-2 mt-3">
+                                            <button type="button" class="btn btn-primary">صفحة الدفع</button>
+                                        </div>
+                            </ul>
+                        </div>
                         </li>
-                    </ul>
-                
-                  
-                  </div>
 
-             
+                    </ul>
+                  </div>
             </div>
         </nav>
 

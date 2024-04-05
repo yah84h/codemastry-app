@@ -12,8 +12,8 @@ class MessageController extends Controller
         $this->middleware('auth');
     }
 
-    public function GetMessages()
-    {   
+    public function GetMessages(Request $request)
+    {  
         $messages= Messages::all();
         return view('dashboard.messages',['messages'=>$messages]);
     }
@@ -31,4 +31,6 @@ class MessageController extends Controller
         $messages= Messages::where('msg_title','like','%'.$request->name.'%')->get();
         return view('dashboard.messages',['messages'=>$messages]);
     }
+
+   
 }
