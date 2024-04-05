@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Messages;
 use App\Models\Sections;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
@@ -26,7 +27,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $program_details_top = DB::table('program_details')
         ->join('programs', 'programs.id','=','program_details.program_id')
@@ -34,17 +35,90 @@ class HomeController extends Controller
         ->orderBy('purch', 'desc') 
         ->limit(3)
         ->get();
+
+        if (Auth::check()) {
+            $userid= $request->user()->id;
+            $count=DB::table('carts')
+            ->where('user_id',$userid)
+            ->count();
+            //Session::put('count',$count);
+            Session(['count' => $count]);
+    
+            $cart_item=DB::table('carts')
+            ->join('programs', 'programs.id','=','carts.program_id')
+            ->join('program_details', 'program_details.program_id','=','carts.program_id')
+            ->where('user_id',$userid)
+            ->get();
+            
+            $cart_sum=DB::table('carts')
+            ->where('user_id',$userid)
+            ->sum(DB::raw('net'));
+
+            return view('/index',['program_details_top'=>$program_details_top,'cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
+            
+        }else{
+            Session(['count' => 0]);
+        }
+        
         return view('/index',['program_details_top'=>$program_details_top]);
+       
+        
     }
     
 
-    public function AboutUs()
+    public function AboutUs(Request $request)
     {
+        if (Auth::check()) {
+            $userid= $request->user()->id;
+            $count=DB::table('carts')
+            ->where('user_id',$userid)
+            ->count();
+            //Session::put('count',$count);
+            Session(['count' => $count]);
+    
+            $cart_item=DB::table('carts')
+            ->join('programs', 'programs.id','=','carts.program_id')
+            ->join('program_details', 'program_details.program_id','=','carts.program_id')
+            ->where('user_id',$userid)
+            ->get();
+            
+            $cart_sum=DB::table('carts')
+            ->where('user_id',$userid)
+            ->sum(DB::raw('net'));
+
+            return view('/about_us',['cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
+            
+        }else{
+            Session(['count' => 0]);
+        }
         return view('/about_us');
     }
     
-    public function Thanks()
+    public function Thanks(Request $request)
     {
+        if (Auth::check()) {
+            $userid= $request->user()->id;
+            $count=DB::table('carts')
+            ->where('user_id',$userid)
+            ->count();
+            //Session::put('count',$count);
+            Session(['count' => $count]);
+    
+            $cart_item=DB::table('carts')
+            ->join('programs', 'programs.id','=','carts.program_id')
+            ->join('program_details', 'program_details.program_id','=','carts.program_id')
+            ->where('user_id',$userid)
+            ->get();
+            
+            $cart_sum=DB::table('carts')
+            ->where('user_id',$userid)
+            ->sum(DB::raw('net'));
+
+            return view('/thanks',['cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
+            
+        }else{
+            Session(['count' => 0]);
+        }
         return view('/thanks');
     }
 

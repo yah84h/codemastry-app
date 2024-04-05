@@ -48,7 +48,6 @@
                  <div class="row  ">السعر النهائي:
                      <span class="fs-2">{{number_format($items->net, 2)}} ريال</span>
                     </div>
-                    
                     <div class="row fs-6 mt-2 ">السعر بدون الضربية: {{$items->price}}  ريال</div>
                     <div class="row fs-6 mt-2 ">السعر مع الضريبة: {{$items->total}}  ريال</div>
                     <div class="row fs-6 mt-2">الضربية: {{$items->tax}}٪</div>

@@ -18,33 +18,45 @@ class ShoppingController extends Controller
         ->join('sections', 'sections.id','=','program_details.section_id')
         ->where('section_id','=',$section_id)
         ->get();
-        
-        
 
         if (Auth::check()) {
-        $userid= $request->user()->id;
-        $count=DB::table('carts')
-        ->where('user_id',$userid)
-        ->count();
-        //Session::put('count',$count);
-        Session(['count' => $count]);
+            $userid= $request->user()->id;
+            $count=DB::table('carts')
+            ->where('user_id',$userid)
+            ->count();
+            //Session::put('count',$count);
+            Session(['count' => $count]);
+    
+            $cart_item=DB::table('carts')
+            ->join('programs', 'programs.id','=','carts.program_id')
+            ->join('program_details', 'program_details.program_id','=','carts.program_id')
+            ->where('user_id',$userid)
+            ->get();
+            
+            $cart_sum=DB::table('carts')
+            ->where('user_id',$userid)
+            ->sum(DB::raw('net'));
+        
+            $tax= 15;
+            $discount=10;
+            
+        foreach($program_details as $key=> $row)
+        {
+            $program_details[$key]->discount=$discount;
+            $program_details[$key]->tax=$tax;
+            $program_details[$key]->total= ($tax/100+1)*$program_details[$key]->price;
+            $program_details[$key]->net= $program_details[$key]->total-(($discount/100)*$program_details[$key]->total);
+        }
 
-        $cart_item=DB::table('carts')
-        ->join('programs', 'programs.id','=','carts.program_id')
-        ->join('program_details', 'program_details.program_id','=','carts.program_id')
-        ->where('user_id',$userid)
-        ->get();
+            return view('shopping.show_programs',['program_details'=>$program_details,'cart_item'=>$cart_item,'cart_sum'=>$cart_sum]);
         }else{
             Session(['count' => 0]);
         }
-
-        $cart_sum=DB::table('carts')
-        ->where('user_id',$userid)
-        ->sum(DB::raw('net'));
-
-        $tax= 15;
-        $discount=10;
-
+            
+            
+            $tax= 15;
+            $discount=10;
+            
         foreach($program_details as $key=> $row)
         {
             $program_details[$key]->discount=$discount;
@@ -54,7 +66,7 @@ class ShoppingController extends Controller
         }
         
 
-        return view('shopping.show_programs',['program_details'=>$program_details,'cart_item'=>$cart_item,'cart_sum'=>$cart_sum]);
+        return view('shopping.show_programs',['program_details'=>$program_details]);
     }
 
     public function AddToCart(Request $request, $id)
@@ -96,4 +108,8 @@ class ShoppingController extends Controller
         return redirect()->back();
 
     }
+
+    
+
+    
 }

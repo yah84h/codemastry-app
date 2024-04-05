@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Dashboard\MessageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -17,18 +18,19 @@ Auth::routes();
 //Main Pages
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
-//Show Programs Page
-Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
-Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
-Route::get('/showprograms/addtocart/{id}',[ShoppingController::class,'AddToCart'])->name('add-to-cart');
-
-//AdboutUs Page
+//AboutUs Page
 Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'AboutUs'])->name('aboutus');
 Route::post('/aboutus/messages', [App\Http\Controllers\HomeController::class, 'CreateMessages'])->name('create-messages');
 
 //Thanks Page
 Route::get('/thanks',[App\Http\Controllers\HomeController::class,'Thanks'])->name('thanks');
 
+//Show Programs Page
+Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
+//Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
+Route::get('/showprograms/addtocart/{id}',[ShoppingController::class,'AddToCart'])->name('add-to-cart');
+
+//Checkout Page
 
 //======================================== Dashboard Pages =============================================
 

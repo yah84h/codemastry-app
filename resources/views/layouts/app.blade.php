@@ -128,6 +128,7 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-custom text-end px-4 py-3" aria-labelledby="dropdownMenuButton1" style="max-width: 100%;">
+                                @if(auth()->check())
                                 @foreach ($cart_item as $items)           
                                 <li>
                                     <div class="row">
@@ -145,6 +146,8 @@
                                     </div>
                                 </li>
                                 @endforeach
+                                @endif
+                                @if(auth()->check())
                                         <hr class="text-white">
                                         <table class=" m-auto col-12 ">
                                             <tbody>
@@ -157,6 +160,7 @@
                                         <div class="d-grid gap-2 mt-3">
                                             <button type="button" class="btn btn-primary">صفحة الدفع</button>
                                         </div>
+                                @endif
                             </ul>
                         </div>
                         </li>
