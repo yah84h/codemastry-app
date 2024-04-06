@@ -27,10 +27,10 @@ Route::get('/thanks',[App\Http\Controllers\HomeController::class,'Thanks'])->nam
 
 //Show Programs Page
 Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
-//Route::get('/showprograms/{section_id}',[ShoppingController::class,'ShowPrograms'])->name('show_programs');
 Route::get('/showprograms/addtocart/{id}',[ShoppingController::class,'AddToCart'])->name('add-to-cart');
 
 //Checkout Page
+Route::get('/checkout',[CheckoutController::class,'Index'])->name('checkout');
 
 //======================================== Dashboard Pages =============================================
 
