@@ -5,9 +5,6 @@
         <div class="col-auto col-2 text-dark">
             <a href="" class="link-underline-light text-dark">
             <div class="card card-body  btn btn-primary">
-                <p>
-                    {{Session::get('data')}}
-                </p>
                 <h1><i class="text-center bi-receipt mb-3"></i></h1>
                 <span class="fs-4 text-center ">الفواتير</span>
             </div>

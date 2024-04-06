@@ -25,7 +25,7 @@
         <div class="col">
             <div class="card">
                 <div class=" card-header text-center">
-                    <h1 class="title">جدول البرامج التدريبية</h1>
+                    <h1 class="title">جدول رسائل الزوار</h1>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered text-center">

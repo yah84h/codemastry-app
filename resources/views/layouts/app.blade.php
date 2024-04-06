@@ -135,7 +135,7 @@
                                   الدورات التدريبية
                                 </a>
                                 <ul class="dropdown-menu text-center">
-                                    <li><a class="dropdown-item" href="{{route('show_programs',['section_id'=>1])}}">برمجة الويب</a></li>
+                                    <li><a class="dropdown-item" href="{{route('show_programs',['section_id'=>1])}}">برمجة صفحات الويب</a></li>
                                     <li><a class="dropdown-item" href="{{route('show_programs',['section_id'=>2])}}">برمجة التطبيقات الذكية</a></li>
                                     <li><a class="dropdown-item" href="{{route('show_programs',['section_id'=>3])}}">برمجة أنظمة التشغيل</a></li>
                                 </ul>
