@@ -15,7 +15,7 @@
       <div class="row g-3">
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-body-secondary">عربة التسوق</span>
+            <span class="text-body-secondary">سلة التسوق</span>
           </h4>
           <ul class="list-group mb-3">
             @foreach ($cart_item as $items)   
@@ -35,11 +35,11 @@
            
            
           
-            <li class="list-group-item d-flex justify-content-between">
+            <li class="list-group-item d-flex justify-content-between bg-dark-subtle">
             <div class="col-8">
-                <span>مجموع عربة التسوق: </span>
+                <span>مجموع سلة التسوق: </span>
             </div>  
-            <div class="col-4">
+            <div class="col-4 text-start">
                 <strong>{{number_format($cart_sum, 2)}} ريال</strong>
             </div>
             </li>

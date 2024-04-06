@@ -39,7 +39,6 @@ class ShoppingController extends Controller
         
             $tax= 15;
             $discount=10;
-            
         foreach($program_details as $key=> $row)
         {
             $program_details[$key]->discount=$discount;
