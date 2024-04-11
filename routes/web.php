@@ -40,13 +40,14 @@ Route::get('/dashboard',[DashboardController::class,'index'])->name('index');
 //Programs Page
 Route::get('/dashboard/programs',[ProgramsController::class,'GetPrograms'])->name('programs');
 Route::post('/dashboard/createprograms',[ProgramsController::class,'CreatePrograms'])->name('create-programs');
+
 Route::get('/del_program/{id}',[ProgramsController::class,'DelPrograms'])->name('del_programs');
 Route::get('/edit_program/{id}',[ProgramsController::class,'EditPrograms'])->name('edit_programs');
 Route::post('/dashboard/update',[ProgramsController::class,'UpdateProgram'])->name('update-programs');
 Route::post('/dashboard/search',[ProgramsController::class,'SearchProgram'])->name('search-programs');
 
 //Program_Details Page
-Route::get('/dashboard/program-details', [Program_DetailsController::class, 'GetProgramDetails'])->name('program_details');
+Route::get('/dashboard/program_details', [Program_DetailsController::class, 'GetProgramDetails'])->name('program_details');
 Route::post('/dashboard/create_program_details',[Program_DetailsController::class,'CreateProgramDetails'])->name('create_program_details');
 Route::get('/del_program_details/{id}',[Program_DetailsController::class,'DelProgramDetails'])->name('del_program_details');
 Route::post('/dashboard/search_program_details',[Program_DetailsController::class,'SearchProgramDetails'])->name('search_program_details');

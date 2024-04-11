@@ -9,6 +9,7 @@ use App\Models\Sections;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class Program_DetailsController extends Controller
 {
@@ -45,43 +46,37 @@ class Program_DetailsController extends Controller
     
     public function CreateProgramDetails(Request $request)
     {   
-        $validate=$request->validate([
+        $validator = Validator::make($request->all(), [
             'lesson'=> 'numeric',
             'price'=> 'numeric',
+            'url_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        if ($validator->fails()) {
+            // Handle validation failure
+        }
+
+        $image = $request->file('url_image');
+        $imageName = $image->getClientOriginalName(); 
+        $imagePath = $image->storeAs('images', $imageName, 'public'); 
+        
         $program_details= Program_Details::Create([
             'description'=>$request->description,
             'price'=>$request->price,
             'lesson'=>$request->lesson,
             'duration'=>$request->duration,
-            'url_image'=>$request->url_image,
+            'url_image' => $imageName,
             'program_id'=>$request->program_id,
             'section_id'=>$request->section_id,
             'purch'=>0,
         ]);
+        
         $program_details->save();
-        
-        $request->validate([
-            'file' => 'required|mimes:jpg,png,gif,svg|max:2048'
-        ]);
-        
-        
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = $request->url_image;
-            //$image->move(public_path('images'), $imageName);
-            $image= Storage::disk(name:'public')->putFileAs('uploads',$image, name:$request->url_image);
-            return 'Image uploaded successfully.';
-        } else {
-            return 'No image selected.';
-        }
         
         return redirect('/dashboard/program_details');
     }
-    
-    
-    
-    
+   
+
     public function DelProgramDetails($id)
     {   
         $program_details= Program_Details::find($id);

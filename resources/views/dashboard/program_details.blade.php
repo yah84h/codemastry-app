@@ -15,7 +15,7 @@
                 </div>
                 <div class="modal-body">
                     
-                    <form action="{{route('create_program_details')}}" method="POST">
+                    <form action="{{route('create_program_details')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">اسم البرنامج</label>
@@ -111,7 +111,7 @@
                                 <td>{{$items->lesson}}</td>
                                 <td>{{$items->duration}}</td>
                                 <td>{{$items->price}} ريال</td>
-                                <td><img src='/assets/images/{{$items->url_image}}' width="48"/></td>
+                                <td><img src="{{ asset('storage/images/' . $items->url_image) }}" width="48"/></td>
                                 <td><a href="{{route('editprogramsdetails',['id'=>$items->program_details_id])}}"><i class="fa fa-edit text-success" aria-hidden="true"></i></a></td>
                                 <td><a href="{{route('del_program_details',['id'=>$items->program_details_id])}}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
                             </tr>

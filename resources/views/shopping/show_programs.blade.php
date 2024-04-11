@@ -29,7 +29,7 @@
 
                  <div class="col-sm-4">
                      <div class="crad">
-                         <img src="/assets/images/{{$items->url_image}}" class="img-fluid  rounded-2"/>
+                         <img src="{{ asset('storage/images/' . $items->url_image) }}" class="img-fluid rounded-2"/>
                      </div>
                  </div>
                  <div class="col-sm-6">
