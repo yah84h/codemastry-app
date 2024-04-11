@@ -16,6 +16,7 @@ Auth::routes();
 
 //Main Pages
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+//Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'Login']);
 
 //AboutUs Page
 Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'AboutUs'])->name('aboutus');

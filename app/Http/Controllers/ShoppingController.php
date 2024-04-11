@@ -13,6 +13,10 @@ class ShoppingController extends Controller
 {
     public function ShowPrograms(Request $request, $section_id)
     {
+        $menu_items= Sections::all();
+        
+        $sections= Sections::where('id','=',$section_id)->get();
+        //dd($section);
         $program_details=DB::table('program_details')
         ->join('programs', 'programs.id','=','program_details.program_id')
         ->join('sections', 'sections.id','=','program_details.section_id')
@@ -47,7 +51,7 @@ class ShoppingController extends Controller
             $program_details[$key]->net= $program_details[$key]->total-(($discount/100)*$program_details[$key]->total);
         }
 
-            return view('shopping.show_programs',['program_details'=>$program_details,'cart_item'=>$cart_item,'cart_sum'=>$cart_sum]);
+            return view('shopping.show_programs',['sections'=>$sections, 'menu_items'=>$menu_items, 'program_details'=>$program_details,'cart_item'=>$cart_item,'cart_sum'=>$cart_sum]);
         }else{
             Session(['count' => 0]);
         }
@@ -65,11 +69,12 @@ class ShoppingController extends Controller
         }
         
 
-        return view('shopping.show_programs',['program_details'=>$program_details]);
+        return view('shopping.show_programs',['menu_items'=>$menu_items, 'program_details'=>$program_details]);
     }
 
     public function AddToCart(Request $request, $id)
     {
+        $menu_items= Sections::all();
 
         $userid= $request->user()->id;
         $data=DB::table('program_details')

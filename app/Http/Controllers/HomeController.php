@@ -29,6 +29,8 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        $menu_items= Sections::all();
+
         $program_details_top = DB::table('program_details')
         ->join('programs', 'programs.id','=','program_details.program_id')
         ->join('sections', 'sections.id','=','program_details.section_id')
@@ -54,13 +56,13 @@ class HomeController extends Controller
             ->where('user_id',$userid)
             ->sum(DB::raw('net'));
 
-            return view('/index',['program_details_top'=>$program_details_top,'cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
+            return view('/index',['menu_items'=>$menu_items, 'program_details_top'=>$program_details_top,'cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
             
         }else{
             Session(['count' => 0]);
         }
         
-        return view('/index',['program_details_top'=>$program_details_top]);
+        return view('/index',['menu_items'=>$menu_items, 'program_details_top'=>$program_details_top]);
        
         
     }
@@ -68,6 +70,8 @@ class HomeController extends Controller
 
     public function AboutUs(Request $request)
     {
+        $menu_items= Sections::all();
+
         if (Auth::check()) {
             $userid= $request->user()->id;
             $count=DB::table('carts')
@@ -86,16 +90,18 @@ class HomeController extends Controller
             ->where('user_id',$userid)
             ->sum(DB::raw('net'));
 
-            return view('/about_us',['cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
+            return view('/about_us',['menu_items'=>$menu_items, 'cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
             
         }else{
             Session(['count' => 0]);
         }
-        return view('/about_us');
+        return view('/about_us',['menu_items'=>$menu_items,]);
     }
     
     public function Thanks(Request $request)
     {
+        $menu_items= Sections::all();
+        
         if (Auth::check()) {
             $userid= $request->user()->id;
             $count=DB::table('carts')
@@ -114,12 +120,12 @@ class HomeController extends Controller
             ->where('user_id',$userid)
             ->sum(DB::raw('net'));
 
-            return view('/thanks',['cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
+            return view('/thanks',['menu_items'=>$menu_items, 'cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
             
         }else{
             Session(['count' => 0]);
         }
-        return view('/thanks');
+        return view('/thanks',['menu_items'=>$menu_items,]);
     }
 
     public function CreateMessages(Request $request)

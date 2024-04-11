@@ -8,16 +8,16 @@
                 <div class="section-title text-center mt-5 pb-2">
                     <h1 class="title mb-4">دورات قسم: 
                        
-                        <span>
-                            {{$program_details->first()->section_name}}
-                        </span>
+                        @foreach ($sections as $items)
+                        <span>{{ $items->section_name }}</span>
+                        @endforeach
                        
                     </h1>
                 </div>
             </div>
         </div>
     </div>
-
+    <hr>
     @foreach ($program_details as $items)           
     <div class="container py-3">
         <div class="card">
@@ -90,6 +90,15 @@
        </div>
     </div>
    @endforeach
+   @if ($program_details->isEmpty())
+    <div class="container py-3">
+        <div class="card">
+            <div class="card-body">
+                <p>لا توجد بيانات متاحة حالياً.</p>
+            </div>
+        </div>
+    </div>
+@endif
 </section>
 
 

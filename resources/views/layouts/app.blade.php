@@ -135,9 +135,13 @@
                                   الدورات التدريبية
                                 </a>
                                 <ul class="dropdown-menu text-center">
-                                    <li><a class="dropdown-item" href="{{route('show_programs',['section_id'=>1])}}">برمجة صفحات الويب</a></li>
-                                    <li><a class="dropdown-item" href="{{route('show_programs',['section_id'=>2])}}">برمجة التطبيقات الذكية</a></li>
-                                    <li><a class="dropdown-item" href="{{route('show_programs',['section_id'=>3])}}">برمجة أنظمة التشغيل</a></li>
+                                    @if(count($menu_items) > 0)
+                                    @foreach($menu_items as $items)
+                                    <li><a class="dropdown-item" href="{{route('show_programs',['section_id'=>$items->id])}}">{{$items->section_name}}</a></li>
+                                    @endforeach
+                                    @else
+                                    <p>No menu items available.</p>
+                                    @endif
                                 </ul>
                             </li>
                             
@@ -234,7 +238,7 @@
                                             </tbody>
                                         </table>
                                         <div class="d-grid gap-2 mt-3">
-                                            <a href="{{route('checkout')}}" type="button" class="btn btn-primary">صفحة الدفع</a>
+                                            <a href="{{route('checkout')}}" type="button" class="btn btn-primary">إتمام الدفع</a>
                                         </div>
                                 @endif
                             </ul>
