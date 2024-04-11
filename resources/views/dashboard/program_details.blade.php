@@ -84,18 +84,18 @@
                     <h1 class="title">جدول البرامج التدريبية</h1>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered text-center">
+                    <table class="table table-bordered text-center align-middle">
                         <thead>
                           <tr>
-                            <th class="">#</th>
-                            <th class="col-sm-2">اسم البرنامج</th>
-                            <th class="col-sm-2">اسم القسم</th>
-                            <th class="col-sm-5">وصف البرنامج</th>
-                            <th class="col-sm-1">عدد الدروس</th>
-                            <th class="col-sm-1">مدة البرنامج</th>
-                            <th class="col-sm-1">سعر البرنامج</th>
-                            <th class="col-sm-1">صورة البرنامج</th>
-                            <td class="fs-4" colspan="2" >خيارات</td>
+                                <th class="">#</th>
+                                <th class="col-sm-2">اسم البرنامج</th>
+                                <th class="col-sm-2">اسم القسم</th>
+                                <th class="col-sm-5">وصف البرنامج</th>
+                                <th class="col-sm-1">عدد الدروس</th>
+                                <th class="col-sm-1">مدة البرنامج</th>
+                                <th class="col-sm-1">سعر البرنامج</th>
+                                <th class="col-sm-1">صورة البرنامج</th>
+                                <td class="fs-4" colspan="2" >خيارات</td>
                           </tr>
                         </thead>
                         <tbody>
@@ -104,16 +104,16 @@
                             ?>
                             @foreach ($program_details as $items)
                             <tr>
-                              <th>{{$items->program_details_id}}</th>
-                              <td>{{$items->program_name}}</td>
-                              <td>{{$items->section_name}}</td>
-                              <td>{{$items->description}}</td>
-                              <td>{{$items->lesson}}</td>
-                              <td>{{$items->duration}}</td>
-                              <td>{{$items->price}} ريال</td>
-                              <td><img src='/assets/images/{{$items->url_image}}' width="48"/></td>
-                              <td><a href="{{route('editprogramsdetails',['id'=>$items->program_details_id])}}"><i class="fa fa-edit text-success" aria-hidden="true"></i></a></td>
-                              <td><a href="{{route('del_program_details',['id'=>$items->program_details_id])}}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
+                                <th>{{$loop->index+1}}</th>
+                                <td>{{$items->program_name}}</td>
+                                <td>{{$items->section_name}}</td>
+                                <td>{{$items->description}}</td>
+                                <td>{{$items->lesson}}</td>
+                                <td>{{$items->duration}}</td>
+                                <td>{{$items->price}} ريال</td>
+                                <td><img src='/assets/images/{{$items->url_image}}' width="48"/></td>
+                                <td><a href="{{route('editprogramsdetails',['id'=>$items->program_details_id])}}"><i class="fa fa-edit text-success" aria-hidden="true"></i></a></td>
+                                <td><a href="{{route('del_program_details',['id'=>$items->program_details_id])}}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
                             </tr>
                             @endforeach
                           <tr>

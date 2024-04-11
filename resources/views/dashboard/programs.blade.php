@@ -64,10 +64,10 @@
                         <tbody>
                             @foreach ($programs as $items)
                             <tr>
-                              <th>{{$items->id}}</th>
-                              <td>{{$items->program_name}}</td>
-                              <td><a href="{{route('edit_programs',['id'=>$items['id']])}}"><i class="fa fa-edit text-success" aria-hidden="true"> تحرير</i></a></td>
-                              <td><a href="{{route('del_programs',['id'=>$items['id']])}}"><i class="fa fa-trash text-danger" aria-hidden="true"> حذف</i></a></td>
+                                <th>{{$loop->index+1}}</th>        
+                                <td>{{$items->program_name}}</td>
+                                <td><a href="{{route('edit_programs',['id'=>$items['id']])}}"><i class="fa fa-edit text-success" aria-hidden="true"> تحرير</i></a></td>
+                                <td><a href="{{route('del_programs',['id'=>$items['id']])}}"><i class="fa fa-trash text-danger" aria-hidden="true"> حذف</i></a></td>
                             </tr>
                             @endforeach
                           <tr>
