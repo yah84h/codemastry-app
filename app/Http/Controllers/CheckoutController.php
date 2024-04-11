@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sections;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +11,8 @@ class CheckoutController extends Controller
 {
     public function Index(Request $request)
     {
+        $menu_items= Sections::all();
+
         $program_details=DB::table('program_details')
         ->join('programs', 'programs.id','=','program_details.program_id')
         ->join('sections', 'sections.id','=','program_details.section_id')
@@ -45,7 +48,7 @@ class CheckoutController extends Controller
             $program_details[$key]->net= $program_details[$key]->total-(($discount/100)*$program_details[$key]->total);
         }
             
-            return view('shopping.checkout',['program_details'=>$program_details ,'cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
+            return view('shopping.checkout',['menu_items'=>$menu_items, 'program_details'=>$program_details ,'cart_item'=>$cart_item, 'cart_sum'=>$cart_sum]);
         
         }else{
 

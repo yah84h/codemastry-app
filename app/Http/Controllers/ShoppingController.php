@@ -69,7 +69,7 @@ class ShoppingController extends Controller
         }
         
 
-        return view('shopping.show_programs',['menu_items'=>$menu_items, 'program_details'=>$program_details]);
+        return view('shopping.show_programs',['sections'=>$sections, 'menu_items'=>$menu_items, 'program_details'=>$program_details]);
     }
 
     public function AddToCart(Request $request, $id)
