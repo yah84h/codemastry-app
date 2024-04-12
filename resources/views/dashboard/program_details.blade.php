@@ -18,32 +18,32 @@
                     <form action="{{route('create_program_details')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">اسم البرنامج</label>
+                            <label class="form-label">اسم البرنامج:</label>
                             <select class="form-select" name="program_id" required>
                                 <option selected disabled>اختر</option>
                                 @foreach ($programs as $items)
                                 <option value="{{$items->id}}">{{$items->program_name}}</option>
                                 @endforeach
                             </select>
-                            <label class="form-label mt-3">اسم القسم</label>
+                            <label class="form-label mt-3">اسم القسم:</label>
                             <select class="form-select" name="section_id" required>
                                 <option selected disabled>اختر</option>
                                 @foreach ($sections as $items)
                                 <option value="{{$items->id}}">{{$items->section_name}}</option>
                                 @endforeach
                             </select>
-                            <label class="form-label mt-3">وصف البرنامج</label>
+                            <label class="form-label mt-3">وصف البرنامج:</label>
                             <textarea class="form-control" rows="3" name="description" required></textarea>
-                            <label class="form-label mt-3">عدد الدروس</label>
+                            <label class="form-label mt-3">عدد الدروس:</label>
                             <input class="form-control" type="number" name="lesson" required>
-                            <label class="form-label mt-3">مدة البرنامج</label>
+                            <label class="form-label mt-3">مدة البرنامج:</label>
                             <input class="form-control" type="text" placeholder="مثال: 3h 15m" name="duration" required>
-                            <label class="form-label mt-3">سعر البرنامج</label>
+                            <label class="form-label mt-3">سعر البرنامج:</label>
                             <input class="form-control" type="text" name="price" required>
                             @error('price')
                                 <span class="invalid-feedback" role="alert">{{$message}}</span>
                             @enderror
-                            <label class="form-label mt-3">صورة البرنامج</label>
+                            <label class="form-label mt-3">صورة البرنامج: (عرض: ٧٢٠، ارتفاع: ٦٥٠ بكسل)</label>
                             <input type="file" class="form-control" name="url_image" id='url_image' required/>
                           </div>
                           <div class=" mt-3">

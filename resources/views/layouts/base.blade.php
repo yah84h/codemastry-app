@@ -62,7 +62,15 @@
             <li><a class="dropdown-item" href="#">ملفي الشخصي</a></li>
             <li><a class="dropdown-item" href="#">إعدادات الحساب</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{{ route('logout') }}">تسجيل خروج</a></li>
+            <li><a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+               {{ __('تسجيل خروج') }}
+           </a>
+
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+               @csrf
+           </form></li>
           </ul>
         </div>
       </div>
@@ -80,7 +88,7 @@
              لوحة التحكم
               </a>
               <hr/>
-              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start fs-5" id="menu">
+              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start fs-6" id="menu">
                   <li class="nav-item">
                       <a href="{{route('index')}}" class="nav-link align-middle px-0   text-white">
                           <i class="fs-4 bi-house ms-2"></i> <span class="ms-1 d-none d-sm-inline ">الرئيسية</span>
