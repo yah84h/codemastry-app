@@ -21,7 +21,7 @@
             @foreach ($cart_item as $items)   
             <li class="list-group-item d-flex justify-content-between lh-sm">
             <div class="col-2">
-                <img src="/assets/images/{{$items->url_image}}" class="img-fluid  rounded-2"/ width="40">    
+                <img src="{{ asset('storage/images/' . $items->url_image) }}" class="img-fluid  rounded-2"/ width="40">    
             </div>  
             <div class="col-8">
                 <h6 class="my-0">{{$items->program_name}}</h6>

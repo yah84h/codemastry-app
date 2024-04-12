@@ -34,7 +34,7 @@
         <span class="me-2 text-white">C O D E  &nbsp;&nbsp;  M A S T E R Y</span>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item me-3">
-            <a class="nav-link" href="/">زيارة الموقع CODE MASTERY</a>
+            <a class="nav-link" href="/" target="_blank">زيارة الموقع CODE MASTERY</a>
           </li>
         </ul>
       </div>

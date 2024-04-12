@@ -53,11 +53,13 @@ class Program_DetailsController extends Controller
         ]);
 
         if ($validator->fails()) {
-            // Handle validation failure
+            return redirect('/dashboard/program_details')->withErrors($validator);
+            
         }
 
         $image = $request->file('url_image');
-        $imageName = $image->getClientOriginalName(); 
+        $date = date('Y-m-d_H-i-s');
+        $imageName = $date . '_' .$image->getClientOriginalName(); 
         $imagePath = $image->storeAs('images', $imageName, 'public'); 
         
         $program_details= Program_Details::Create([
@@ -81,7 +83,15 @@ class Program_DetailsController extends Controller
     {   
         $program_details= Program_Details::find($id);
         $program_details->delete();
-        return Redirect('/dashboard/program_details');
+        
+        $filePath = 'public/images/'.$program_details->url_image;
+        
+        if (Storage::exists($filePath)) {
+            Storage::delete($filePath);
+            return Redirect('/dashboard/program_details');
+        } else{
+            dd($filePath);
+        }
     }
     
     

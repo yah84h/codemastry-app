@@ -113,12 +113,38 @@
                                 <td>{{$items->price}} ريال</td>
                                 <td><img src="{{ asset('storage/images/' . $items->url_image) }}" width="48"/></td>
                                 <td><a href="{{route('editprogramsdetails',['id'=>$items->program_details_id])}}"><i class="fa fa-edit text-success" aria-hidden="true"></i></a></td>
-                                <td><a href="{{route('del_program_details',['id'=>$items->program_details_id])}}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#delete_program_model"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
                             </tr>
                             @endforeach
                           <tr>
                         </tbody>
                       </table>
+                      
+
+                       <!-- Modal -->
+                       <div class="modal fade" id="delete_program_model" tabindex="-1" aria-labelledby="delete_program_modelLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">تأكيد الحذف</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            هل تريد بالتأكيد حذف البرنامج التدريبي؟
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                            <form id="deleteForm" action="{{ route('del_program_details', ['id' => $items->program_details_id]) }}" method="GET">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-primary">نعم</button>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>

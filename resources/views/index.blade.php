@@ -104,7 +104,7 @@
                     <div class="col-lg-4 col-md-6 col-12 mb-5 pt-2">
                     <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
                     <div class="position-relative">
-                        <img src="/assets/images/{{$items->url_image}}" class="card-img-top" alt="...">
+                        <img src="{{ asset('storage/images/' . $items->url_image) }}" class="card-img-top" alt="...">
                         <div class="overlay"></div>    
                     </div>
                     <div class="card-body content">

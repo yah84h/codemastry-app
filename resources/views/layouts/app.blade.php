@@ -215,7 +215,7 @@
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <td class="col-3"><img src="/assets/images/{{$items->url_image}}" class="img-fluid  rounded-2"/ width="40"></td>
+                                                    <td class="col-3"><img src="{{ asset('storage/images/' . $items->url_image) }}" class="img-fluid  rounded-2"/ width="40"></td>
                                                     <td class="col-6">{{$items->program_name}}</td>
                                                     <td class="col-3">{{number_format($items->net, 2)}}</td>
                                                 </tr>
