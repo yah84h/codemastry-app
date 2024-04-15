@@ -23,13 +23,16 @@
             <div class="col-2">
                 <img src="{{ asset('storage/images/' . $items->url_image) }}" class="img-fluid  rounded-2"/ width="40">    
             </div>  
-            <div class="col-8">
+            <div class="col-6">
                 <h6 class="my-0">{{$items->program_name}}</h6>
                 <small class="text-body-secondary">{{$items->section_name}}</small>
             </div>
             <div class="col-2">
                 <span class="text-body-secondary">{{number_format($items->net, 2)}}</span>
             </div>
+            <div class="col-1">
+              <a href="{{ route('del_cart_item', ['id' => $items->carts_id]) }}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+          </div>
             </li>
             @endforeach
            

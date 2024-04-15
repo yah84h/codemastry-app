@@ -31,6 +31,7 @@ Route::get('/showprograms/addtocart/{id}',[ShoppingController::class,'AddToCart'
 
 //Checkout Page
 Route::get('/checkout',[CheckoutController::class,'Index'])->name('checkout');
+Route::get('/checkout/delitem/{id}',[CheckoutController::class,'DelItem'])->name('del_cart_item');
 
 //======================================== Dashboard Pages =============================================
 

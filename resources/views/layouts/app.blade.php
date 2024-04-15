@@ -210,37 +210,43 @@
                             <ul class="dropdown-menu dropdown-menu-custom text-end px-4 py-3" aria-labelledby="dropdownMenuButton1" style="max-width: 100%;">
                                 @if(auth()->check())
                                 @foreach ($cart_item as $items)           
-                                <li>
-                                    <div class="row">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="col-3"><img src="{{ asset('storage/images/' . $items->url_image) }}" class="img-fluid  rounded-2"/ width="40"></td>
-                                                    <td class="col-6">{{$items->program_name}}</td>
-                                                    <td class="col-3">{{number_format($items->net, 2)}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        
-                                        
-                                    </div>
-                                </li>
-                                @endforeach
-                                @endif
-                                @if(auth()->check())
-                                        <hr class="text-white">
-                                        <table class=" m-auto col-12 ">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="col-7 text-end" colspan="2">مجموع السلة: </td>
-                                                    <td class="col-5 text-start">{{number_format($cart_sum, 2)}} ريال</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="d-grid gap-2 mt-3">
-                                            <a href="{{route('checkout')}}" type="button" class="btn btn-primary">إتمام الدفع</a>
+                                    <li>
+                                        <div class="row">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-3"><img src="{{ asset('storage/images/' . $items->url_image) }}" class="img-fluid  rounded-2" width="40"></td>
+                                                        <td class="col-6">{{$items->program_name}}</td>
+                                                        <td class="col-3">{{number_format($items->net, 2)}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
+                                    </li>
+                                @endforeach
+                            
+                                @if($cart_sum > 0)
+                                    <hr class="text-white">
+                                    <table class=" m-auto col-12">
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-7 text-end" colspan="2">مجموع السلة: </td>
+                                                <td class="col-5 text-start">{{number_format($cart_sum, 2)}} ريال</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-grid gap-2 mt-3">
+                                        <a href="{{route('checkout')}}" type="button" class="btn btn-primary">إتمام الدفع</a>
+                                    </div>
+                                @else
+                                    <!-- If cart_sum is 0, disable the button -->
+                                    <div class="d-grid gap-2 mt-3">
+                                        <button type="button" class="btn btn-primary" disabled>إتمام الدفع</button>
+                                    </div>
                                 @endif
+                            
+                            @endif
+                            
                             </ul>
                         </div>
                         </li>

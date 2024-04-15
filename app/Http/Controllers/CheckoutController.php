@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Sections;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,14 @@ class CheckoutController extends Controller
             ->join('programs', 'programs.id','=','carts.program_id')
             ->join('program_details', 'program_details.program_id','=','carts.program_id')
             ->join('sections', 'sections.id','=','program_details.section_id')
+            ->select(
+                'program_name',
+                'section_name',
+                'description',
+                'url_image',
+                'net',
+                'carts.id as carts_id'
+            )
             ->where('user_id',$userid)
             ->get();
             
@@ -54,5 +63,12 @@ class CheckoutController extends Controller
 
             return redirect('/');
         }
+    }
+
+    public function DelItem($id)
+    {   
+        $del_cart_item= Cart::find($id);
+        $del_cart_item->delete();
+        return Redirect('checkout');
     }
 }
