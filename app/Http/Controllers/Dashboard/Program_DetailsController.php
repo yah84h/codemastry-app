@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Program_Details;
 use App\Models\Programs;
 use App\Models\Sections;
@@ -82,8 +83,23 @@ class Program_DetailsController extends Controller
     public function DelProgramDetails($id)
     {   
         $program_details= Program_Details::find($id);
-        $program_details->delete();
         
+        $carts = DB::table('program_details')
+        ->join('carts', 'carts.program_id','=','program_details.program_id')
+        ->join('programs', 'programs.id','=','carts.program_id')
+       
+        ->where('program_details.id', '=', $id)
+        ->get();
+        
+        
+        if ($carts->isNotEmpty()) {
+            foreach ($carts as $cart) {
+                DB::table('carts')->where('id', $cart->id)->delete();
+            }
+            DB::table('program_details')->where('id', $id)->delete();
+        }
+        
+ 
         $filePath = 'public/images/'.$program_details->url_image;
         
         if (Storage::exists($filePath)) {
